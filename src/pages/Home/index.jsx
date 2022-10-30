@@ -9,14 +9,8 @@ import "./styles.css";
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState("house");
   const [selectedLocation, setSelectedLocation] = useState("ny");
-  const [selectedRating, setSelectedRating] = useState(null);
   const [selectedPrice, setSelectedPrice] = useState([100, 10000]);
-
-  const [cuisines, setCuisines] = useState([
-    { id: 1, checked: false, label: "American" },
-    { id: 2, checked: false, label: "Chinese" },
-    { id: 3, checked: false, label: "Italian" },
-  ]);
+  const [selectedDate, setSelectedDate] = useState(null);
 
   const [list, setList] = useState(dataList);
   const [resultsFound, setResultsFound] = useState(true);
@@ -28,16 +22,9 @@ const Home = () => {
   const handleSelectLocation = (event, value) =>
     setSelectedLocation(event.target.value);
 
-  const handleSelectRating = (event, value) =>
-    !value ? null : setSelectedRating(value);
+  const handleSelectDate = (event, value) => setSelectedDate(value);
 
-  const handleChangeChecked = (id) => {
-    const cusinesStateList = cuisines;
-    const changeCheckedCuisines = cusinesStateList.map((item) =>
-      item.id === id ? { ...item, checked: !item.checked } : item
-    );
-    setCuisines(changeCheckedCuisines);
-  };
+  
 
   const handleChangePrice = (event, value) => {
     setSelectedPrice(value);
@@ -46,12 +33,7 @@ const Home = () => {
   const applyFilters = () => {
     let updatedList = dataList;
 
-    // Rating Filter
-    if (selectedRating) {
-      updatedList = updatedList.filter(
-        (item) => parseInt(item.rating) === parseInt(selectedRating)
-      );
-    }
+    
 
     // Category Filter
     if (selectedCategory) {
@@ -67,16 +49,14 @@ const Home = () => {
       );
     }
 
-
-    // Cuisine Filter
-    const cuisinesChecked = cuisines
-      .filter((item) => item.checked)
-      .map((item) => item.label.toLowerCase());
-
-    if (cuisinesChecked.length) {
-      updatedList = updatedList.filter((item) =>
-        cuisinesChecked.includes(item.cuisine)
-      );
+    // Date filter
+    if (selectedDate) {
+      updatedList = updatedList.filter((item) => {
+        var d1 = new Date(item.date);
+        var d2 = new Date(selectedDate);
+        console.log(d1, d2);
+        return d1.getTime() <= d2.getTime();
+      });
     }
 
     // Search Filter
@@ -103,7 +83,13 @@ const Home = () => {
 
   useEffect(() => {
     applyFilters();
-  }, [selectedRating, selectedCategory, cuisines, searchInput, selectedPrice, selectedLocation]);
+  }, [
+    selectedCategory,
+    searchInput,
+    selectedPrice,
+    selectedLocation,
+    selectedDate,
+  ]);
 
   return (
     <div className="home">
@@ -120,12 +106,10 @@ const Home = () => {
             selectCategory={handleSelectCategory}
             selectedLocation={selectedLocation}
             selectLocation={handleSelectLocation}
-            selectedRating={selectedRating}
             selectedPrice={selectedPrice}
-            selectRating={handleSelectRating}
-            cuisines={cuisines}
-            changeChecked={handleChangeChecked}
             changePrice={handleChangePrice}
+            selectedDate={selectedDate}
+            selectDate={handleSelectDate}
           />
         </div>
         {/* List & Empty View */}

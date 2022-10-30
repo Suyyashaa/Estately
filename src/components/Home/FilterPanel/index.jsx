@@ -1,9 +1,8 @@
 import React from 'react';
-import { categoryList, ratingList, locationList} from '../../../constants';
-import CheckboxProton from '../../common/CheckboxProton';
-import FilterListToggle from '../../common/FilterListToggle';
+import { categoryList, locationList} from '../../../constants';
 import SliderProton from '../../common/SliderProton';
 import SelectList from '../../common/SelectList';
+import DatePicker from '../../common/DatePicker';
 import './styles.css';
 
 const FilterPanel = ({
@@ -11,12 +10,10 @@ const FilterPanel = ({
   selectedCategory,
   selectLocation,
   selectedLocation,
-  selectedRating,
   selectedPrice,
-  selectRating,
-  cuisines,
-  changeChecked,
   changePrice,
+  selectDate,
+  selectedDate,
 }) => (
   <div>
     <div className='input-group'>
@@ -35,6 +32,13 @@ const FilterPanel = ({
         value={selectedLocation}
         handleSelect={selectLocation}
         inputLabel = 'Location'
+      />
+    </div>
+    <div className='input-group'>
+      <p className='label'>Move-In Date</p>
+      <DatePicker
+        value={selectedDate}
+        handleSelect={selectDate}
       />
     </div>
     

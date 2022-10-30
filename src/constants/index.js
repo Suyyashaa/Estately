@@ -1,3 +1,5 @@
+import "date-fns";
+
 export const locationList = [
   {
     id: 1,
@@ -45,40 +47,14 @@ export const categoryList = [
 ];
 
 
-export const ratingList = [
-  {
-    id: 1,
-    value: '1',
-    label: '1🌟',
-  },
-  {
-    id: 2,
-    value: '2',
-    label: '2🌟',
-  },
-  {
-    id: 3,
-    value: '3',
-    label: '3🌟',
-  },
-  {
-    id: 4,
-    value: '4',
-    label: '4🌟',
-  },
-  {
-    id: 5,
-    value: '5',
-    label: '5🌟',
-  },
-];
+
 
 export const dataList = [
   {
     id: 1,
     title: 'Palm Harbour',
     category: 'house',
-    moveInDate: '',
+    date: Date(2022-10-30),
     location: 'ny',
     price: 2500,
     coverSrc: '/images/places/1.jpg',
@@ -87,7 +63,7 @@ export const dataList = [
     id: 2,
     title: 'Beverly Springfield',
     category: 'apartment',
-    moveInDate: '',
+    date: Date(2022-10-30),
     location: 'chicago',
     price: 3800,
     coverSrc: '/images/places/2.jpg',
@@ -96,7 +72,7 @@ export const dataList = [
     id: 3,
     title: 'Faulkner Avenue',
     category: 'condo',
-    moveInDate: '',
+    date: Date(2022-10-30),
     location: 'houston',
     price: 800,
     coverSrc: '/images/places/3.jpg',
@@ -105,7 +81,7 @@ export const dataList = [
     id: 4,
     title: 'Liberty Hill',
     category: 'villa',
-    moveInDate: '',
+    date: Date(2022-11-1),
     location: 'la',
     price: 1900,
     coverSrc: '/images/places/4.jpg',
@@ -114,7 +90,7 @@ export const dataList = [
     id: 5,
     title: 'DreamVille Villa',
     category: 'house',
-    moveInDate: '',
+    date: Date(2022-11-2),
     location: 'ny',
     price: 7600,
     coverSrc: '/images/places/5.jpg',
