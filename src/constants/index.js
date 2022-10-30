@@ -95,5 +95,32 @@ export const dataList = [
     price: 7600,
     coverSrc: '/images/places/5.jpg',
   },
+  {
+    id: 6,
+    title: 'Wonder Land homestead',
+    category: 'villa',
+    date: Date(2020-11-2),
+    location: 'ny',
+    price: 1600,
+    coverSrc: '/images/places/6.jpg',
+  },
+  {
+    id: 7,
+    title: 'Mystery Mansion',
+    category: 'condo',
+    date: Date(2022-9-2),
+    location: 'chicago',
+    price: 8000,
+    coverSrc: '/images/places/7.jpg',
+  },
+  {
+    id: 8,
+    title: 'Dreamers Paradise',
+    category: 'apartment',
+    date: Date(2022-12-2),
+    location: 'ny',
+    price: 5400,
+    coverSrc: '/images/places/8.jpg',
+  },
   
 ];

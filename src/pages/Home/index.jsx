@@ -3,12 +3,13 @@ import EmptyView from "../../components/common/EmptyView";
 import FilterPanel from "../../components/Home/FilterPanel";
 import List from "../../components/Home/List";
 import SearchBar from "../../components/Home/SearchBar";
+import Header from "../../components/Home/Header";
 import { dataList } from "../../constants";
 import "./styles.css";
 
 const Home = () => {
-  const [selectedCategory, setSelectedCategory] = useState("house");
-  const [selectedLocation, setSelectedLocation] = useState("ny");
+  const [selectedCategory, setSelectedCategory] = useState('house');
+  const [selectedLocation, setSelectedLocation] = useState('ny');
   const [selectedPrice, setSelectedPrice] = useState([100, 10000]);
   const [selectedDate, setSelectedDate] = useState(null);
 
@@ -93,11 +94,12 @@ const Home = () => {
 
   return (
     <div className="home">
-      {/* Search Bar */}
-      <SearchBar
-        value={searchInput}
-        changeInput={(e) => setSearchInput(e.target.value)}
-      />
+            <Header 
+            value={searchInput}
+            changeInput={(e) => setSearchInput(e.target.value)}
+            />
+
+      
       <div className="home_panelList-wrap">
         {/* Filter Panel */}
         <div className="home_panel-wrap">

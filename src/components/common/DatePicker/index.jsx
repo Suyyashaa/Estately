@@ -1,5 +1,5 @@
 import React from "react";
-
+import { makeStyles } from '@material-ui/core/styles';
 import "date-fns";
 import Grid from "@material-ui/core/Grid";
 import DateFnsUtils from "@date-io/date-fns";
@@ -8,10 +8,18 @@ import {
   KeyboardDatePicker,
 } from "@material-ui/pickers";
 
+const useStyles = makeStyles({
+    root: {
+      width: '100%',
+    },
+  });
+
 const DatePicker = ({ value, handleSelect }) => {
+    const classes = useStyles();
+
   return (
    
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+    <MuiPickersUtilsProvider utils={DateFnsUtils} className={classes.root}>
       <Grid container justifyContent="space-around">
         <KeyboardDatePicker
         
