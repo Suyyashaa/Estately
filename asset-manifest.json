@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/estately/static/css/main.1965bd22.css",
+    "main.js": "/estately/static/js/main.aeba254c.js",
+    "index.html": "/estately/index.html",
+    "main.1965bd22.css.map": "/estately/static/css/main.1965bd22.css.map",
+    "main.aeba254c.js.map": "/estately/static/js/main.aeba254c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1965bd22.css",
+    "static/js/main.aeba254c.js"
+  ]
+}
